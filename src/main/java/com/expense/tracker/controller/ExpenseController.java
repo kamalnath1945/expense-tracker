@@ -155,5 +155,9 @@ public class ExpenseController {
     public void deleteExpense(@PathVariable int id){
         userexprepo.deleteById(id);
     }
-
+    
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/login";
+    }
 }
