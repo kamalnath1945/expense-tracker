@@ -91,7 +91,7 @@ public class ExpenseController {
             
 
     @PostMapping("/register")
-    public String save(@Valid @ModelAttribute User user, BindingResult br, Model m){
+    public String save(@Valid @ModelAttribute User user, BindingResult br, Model m, RedirectAttributes redirectAttributes){
         if(br.hasErrors()){
             return "register";
         }
@@ -103,6 +103,7 @@ public class ExpenseController {
         String pass = user.getPassword();
         user.setPassword(encoder.encode(pass));
         er.save(user);
+        redirectAttributes.addFlashAttribute("success", "Registered successfully!");
         return "redirect:/login";
     }
 

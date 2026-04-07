@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Register - Expense Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         *{
             margin:0;
@@ -23,6 +25,7 @@
             display:flex;
             background-repeat: no-repeat;
             justify-content:center;
+            background-color: #e2e8f0;
             background-image: url('/images/bg.jpeg');
             background-size: cover;
             background-position: center;
@@ -120,7 +123,7 @@
                 <input type="email" id="email" th:field="*{email}" name="email" placeholder="Enter email" required>
                 <p style="color:red"
                     th:if="${#fields.hasErrors('email')}"
-                    th:errors="*{password}">
+                    th:errors="*{email}">
                 </p>
                 <p style="color:red" th:if="${emailError}" th:text="${emailError}"></p>
             </div>
@@ -144,6 +147,7 @@
             <a th:href="@{/login}">Login</a>
         </div>
     </div>
+
 
 </body>
 </html>

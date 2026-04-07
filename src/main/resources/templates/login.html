@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Login - Expense Tracker</title>
     <style>
         *{
@@ -24,6 +25,7 @@
             display:flex;
             background-repeat: no-repeat;
             justify-content:center;
+            background-color: #e2e8f0;
             background-image: url('/images/bg.jpeg');
             background-size: cover;
             background-position: center;
@@ -125,6 +127,13 @@
             <a th:href="@{/register}">Register</a>
         </div>
     </div>
-
+    <script th:if="${success}" th:inline="javascript">
+        Swal.fire({
+            icon: 'success',
+            title: 'Registration Successful',
+            text: 'User registered successfully!',
+            confirmButtonColor: '#2563eb'
+        });
+    </script>
 </body>
 </html>
